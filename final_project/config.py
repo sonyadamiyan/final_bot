@@ -20,6 +20,7 @@ MAX_USER_GPT_TOKENS = 5_000
 MAX_USER_SYMBOLS = 2000
 MAX_USER_BLOCKS = 15
 
+
 URL = 'https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize'
 GPT_URL = "https://llm.api.cloud.yandex.net/foundationModels/v1/completion"
 GPT_MODEL = "yandexgpt-lite"

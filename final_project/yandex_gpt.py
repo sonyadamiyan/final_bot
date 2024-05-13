@@ -98,3 +98,5 @@ def ask_speech_kit_stt(user: dict, data):
 
 if __name__ == '__main__':
     print(count_gpt_tokens([{'role': 'user', 'text': 'Привет'}]))
+
+

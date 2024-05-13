@@ -78,6 +78,7 @@ def count_users(user_id):
         return None
 
 
+
 def select_n_last_messages(user_id, n_last_messages=4):
     messages = []
     total_spent_tokens = 0

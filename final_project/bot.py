@@ -15,7 +15,6 @@ db_file = "databse.db"
 
 
 # кнопки ответа
-
 def create_keyboard(buttons_list):
     keyboard = ReplyKeyboardMarkup(
         row_width=1,
