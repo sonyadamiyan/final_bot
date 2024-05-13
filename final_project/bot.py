@@ -9,8 +9,6 @@ from database import create_database, add_message, select_n_last_messages, inser
 from speechkit import text_to_speech, speech_to_text
 from creds import get_bot_token
 
-feedback_text = "Оставьте отзыв/сообщите об ошибке/сообщите об опечатке"
-
 bot = telebot.TeleBot(get_bot_token())
 user_data = {}
 db_file = "databse.db"
@@ -134,17 +132,6 @@ def handle_voice(message: telebot.types.Message):
 def handler(message):
     bot.send_message(message.from_user.id, "Ошибка. я отвечаю только на текстовое или голосовое сообщение")
 
-@bot.message_handler(commands=["feedback"])
-def feedback_handler(message):
-    bot.send_message(message.chat.id, feedback_text.format(message.from_user,
-                                                           bot.get_me()), parse_mode="markdown")
-    bot.register_next_step_handler(message, feedback)
-
-
-def feedback(message):
-    with open('creds/feedback.txt', 'w', encoding='utf-8') as f:
-        f.write(f'{message.from_user.first_name}({message.from_user.id}) оставил отзыв - "{message.text}"\n')
-        bot.send_message(message.chat.id, 'Спасибо за отзыв!')
 
 @bot.message_handler(commands=['tts'])
 def handle_tts(mes: Message):
