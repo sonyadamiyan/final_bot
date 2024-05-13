@@ -7,9 +7,6 @@ IAM_TOKEN, FOLDER_ID = get_creds()
 logging.basicConfig(filename=LOGS, level=logging.ERROR,
                     format="%(asctime)s FILE: %(filename)s IN: %(funcName)s MESSAGE: %(message)s", filemode="w")
 
-
-
-
 def text_to_speech(text):
     headers = {
         "Authorization": f"Bearer {IAM_TOKEN}"}
