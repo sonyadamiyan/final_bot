@@ -9,23 +9,25 @@ from database import create_database, add_message, select_n_last_messages, inser
 from speechkit import text_to_speech, speech_to_text
 from creds import get_bot_token
 
+feedback_text = "Оставьте отзыв/сообщите об ошибке/сообщите об опечатке"
+
 bot = telebot.TeleBot(get_bot_token())
 user_data = {}
 db_file = "databse.db"
 
 
 # кнопки ответа
+
 def create_keyboard(buttons_list):
     keyboard = ReplyKeyboardMarkup(
         row_width=1,
         resize_keyboard=True
     )
     keyboard.add(*buttons_list)
-    return keyboard
 
 
 def register_comands(message):
-    commands = [  # Установка списка команд с областью видимости и описанием
+    commands = [
         BotCommand("start", "запуск бота"),
         BotCommand("tts", "озвучить текст"),
         BotCommand("stt", "перевести голосовое сообщение в текст")]
@@ -48,8 +50,8 @@ def send_welcome(message):
                  text="Привет!\n"
                         "Я могу ответить на любой твой вопрос или просто поболтать\n"
                         "Присылаю ответ в том же формате, в котором ты присылал запрос:\n"
-                        "(текст в ответ на текст, голос в ответ на голос)")
-
+                        "(текст в ответ на текст, голос в ответ на голос)",
+                 reply_markup=create_keyboard(["/tts", "/stt"]))
 
 @bot.message_handler(content_types=["text"])
 def handle_text(message):
@@ -132,6 +134,17 @@ def handle_voice(message: telebot.types.Message):
 def handler(message):
     bot.send_message(message.from_user.id, "Ошибка. я отвечаю только на текстовое или голосовое сообщение")
 
+@bot.message_handler(commands=["feedback"])
+def feedback_handler(message):
+    bot.send_message(message.chat.id, feedback_text.format(message.from_user,
+                                                           bot.get_me()), parse_mode="markdown")
+    bot.register_next_step_handler(message, feedback)
+
+
+def feedback(message):
+    with open('creds/feedback.txt', 'w', encoding='utf-8') as f:
+        f.write(f'{message.from_user.first_name}({message.from_user.id}) оставил отзыв - "{message.text}"\n')
+        bot.send_message(message.chat.id, 'Спасибо за отзыв!')
 
 @bot.message_handler(commands=['tts'])
 def handle_tts(mes: Message):
@@ -244,7 +257,7 @@ if __name__ == "__main__":
         level=logging.INFO,
         format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
         datefmt="%Y-%m-%d %H",
-        filename=LOGS,
+        #filename=LOGS,
         filemode="w",
         encoding='utf-8',
         force=True)

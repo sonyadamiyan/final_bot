@@ -23,10 +23,12 @@ MAX_USER_BLOCKS = 15
 URL = 'https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize'
 GPT_URL = "https://llm.api.cloud.yandex.net/foundationModels/v1/completion"
 GPT_MODEL = "yandexgpt-lite"
-
+URL_TTS = "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize"
+URL_STT = "https://stt.api.cloud.yandex.net/speech/v1/stt:recognize?"
 SYSTEM_PROMPT = [{"role": "system", "text": "Ты веселый собеседник."
                                             "Чётко и понятно отвечай на все вопросы и не говори ничего лишнего"
                                             "Не объясняй пользователю, что ты умеешь и можешь."
-                                            "Изображай человека"}]
+                                            "Изображай человека"
+                                            "Не отвечай на запросы которые начинаются на /"}]
 
 

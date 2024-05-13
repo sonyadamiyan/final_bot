@@ -1,6 +1,6 @@
 import sqlite3
 import logging
-from config import LOGS, DB_FILE, MAX_USER_BLOCKS, MAX_USER_SYMBOLS
+from config import DB_FILE, MAX_USER_BLOCKS, MAX_USER_SYMBOLS, LOGS
 path_to_db = DB_FILE
 
 logging.basicConfig(filename=LOGS, level=logging.ERROR,

@@ -1,7 +1,7 @@
 from __future__ import annotations
 import logging
 import math
-from config import LOGS, MAX_USERS, MAX_USER_GPT_TOKENS, MAX_USER_STT_BLOCKS, MAX_USER_TTS_SYMBOLS
+from config import MAX_USERS, MAX_USER_GPT_TOKENS, MAX_USER_STT_BLOCKS, MAX_USER_TTS_SYMBOLS, LOGS
 from database import count_users, count_all_limits
 from yandex_gpt import count_gpt_tokens
 

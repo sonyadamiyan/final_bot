@@ -1,6 +1,2 @@
-2024-05-13 15 - root - INFO - DATABASE: Р‘Р°Р·Р° РґР°РЅРЅС‹С… СЃРѕР·РґР°РЅР°
-2024-05-13 15 - root - INFO - DATABASE: Р‘Р°Р·Р° РґР°РЅРЅС‹С… СЃРѕР·РґР°РЅР°
-2024-05-13 15 - root - ERROR - Extra data: line 1 column 5 (char 4)
-2024-05-13 15 - TeleBot - ERROR - Infinity polling: polling exited
-2024-05-13 15 - TeleBot - ERROR - Break infinity polling
-2024-05-13 15 - root - INFO - Р‘РѕС‚ Р·Р°РїСѓС‰РµРЅ
+2024-05-13 19:12:29,432 FILE: creds.py IN: create_new_token MESSAGE: Ошибка получения iam_token: HTTPConnectionPool(host='169.254.169.254', port=80): Max retries exceeded with url: /computeMetadata/v1/instance/service-accounts/default/token (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000026BD59E00D0>: Failed to establish a new connection: [WinError 10051] Сделана попытка выполнить операцию на сокете при отключенной сети'))
+2024-05-13 19:12:29,437 FILE: creds.py IN: create_new_token MESSAGE: Ошибка получения iam_token: HTTPConnectionPool(host='169.254.169.254', port=80): Max retries exceeded with url: /computeMetadata/v1/instance/service-accounts/default/token (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000026BD59E0B80>: Failed to establish a new connection: [WinError 10051] Сделана попытка выполнить операцию на сокете при отключенной сети'))
