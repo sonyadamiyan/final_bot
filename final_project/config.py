@@ -3,7 +3,8 @@ SPEECHKIT_MODEL = "general"
 VOICE = "ermil"
 
 HOME_DIR = 'home/student/final_bot/final_project'
-LOGS = f'{HOME_DIR}/logs.txt'
+LOGS = f'home/student/final_bot/final_project/logs.txt'
+
 DB_FILE = f'{HOME_DIR}/messages.db'
 
 IAM_TOKEN_PATH = f'{HOME_DIR}/creds/iam_token.txt'
